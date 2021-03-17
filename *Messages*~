@@ -1,0 +1,26 @@
+Loading /etc/emacs/site-start.d/00debian.el (source)...done
+Loading /etc/emacs/site-start.d/50dictionaries-common.el (source)...
+Loading debian-ispell...
+Loading /var/cache/dictionaries-common/emacsen-ispell-default.el (source)...done
+Loading debian-ispell...done
+Loading /var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...done
+Loading /etc/emacs/site-start.d/50dictionaries-common.el (source)...done
+Loading /etc/emacs/site-start.d/50figlet.el (source)...done
+For information about GNU Emacs and the GNU system, type C-h C-a.
+(New file)
+Mark set
+C-c <down> is undefined
+scroll-up-command: End of buffer
+next-line: End of buffer
+Auto-saving...done
+next-line: End of buffer
+Saving file /home/kali/Desktop/C-Projects/Kmapied.c...
+Wrote /home/kali/Desktop/C-Projects/Kmapied.c
+x is undefined
+scroll-down-command: Beginning of buffer
+M is undefined
+x is undefined
+Mark set
+<C-return> is undefined
+command-execute: Buffer is read-only: #<buffer *Messages*>
+command-execute: Buffer is read-only: #<buffer *Messages*>

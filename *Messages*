@@ -1,0 +1,99 @@
+Loading /etc/emacs/site-start.d/00debian.el (source)...done
+Loading /etc/emacs/site-start.d/50dictionaries-common.el (source)...
+Loading debian-ispell...
+Loading /var/cache/dictionaries-common/emacsen-ispell-default.el (source)...done
+Loading debian-ispell...done
+Loading /var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...done
+Loading /etc/emacs/site-start.d/50dictionaries-common.el (source)...done
+Loading /etc/emacs/site-start.d/50figlet.el (source)...done
+For information about GNU Emacs and the GNU system, type C-h C-a.
+(New file)
+Mark set
+C-c <down> is undefined
+scroll-up-command: End of buffer
+next-line: End of buffer
+Auto-saving...done
+next-line: End of buffer
+Saving file /home/kali/Desktop/C-Projects/Kmapied.c...
+Wrote /home/kali/Desktop/C-Projects/Kmapied.c
+x is undefined
+scroll-down-command: Beginning of buffer
+M is undefined
+x is undefined
+Mark set
+<C-return> is undefined
+command-execute: Buffer is read-only: #<buffer *Messages*> [2 times]
+Wrote /home/kali/Desktop/C-Projects/*Messages*
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Quit
+c is undefined
+o is undefined
+m is undefined
+c is undefined
+o is undefined
+m is undefined
+n is undefined
+o is undefined
+w is undefined
+e is undefined
+f is undefined
+w is undefined
+o is undefined
+e is undefined
+f is undefined
+w is undefined
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <down-mouse-1>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <mouse-1>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <menu-bar>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <tools>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <compile>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <return>
+Auto-saving...done
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) C-z
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <menu-bar>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <tools>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) <compile>
+Type C-h for help.
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) y
+Saving file /home/kali/Desktop/C-Projects/*Messages*...
+Wrote /home/kali/Desktop/C-Projects/*Messages*
+command-execute: Buffer is read-only: #<buffer *Messages*>
+Compilation finished
+Auto-saving...
+Saving file /home/kali/Desktop/C-Projects/simple-fork.c...
+Wrote /home/kali/Desktop/C-Projects/simple-fork.c
+Mark set
+Saving file /home/kali/Desktop/C-Projects/simple_fork.c...
+Wrote /home/kali/Desktop/C-Projects/simple_fork.c
+Mark set [4 times]
+Auto-saving...done
+Mark set
+Auto-saving...done
+Mark set
+Quit
+Saving file /home/kali/Desktop/C-Projects/simple_fork.c...
+Wrote /home/kali/Desktop/C-Projects/simple_fork.c
+C-c <mouse-1> is undefined
+apply: Command attempted to use minibuffer while in minibuffer
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) 
+Save file /home/kali/Desktop/C-Projects/*Messages*? (y, n, !, ., q, C-r, C-f, d or C-h) y
+Saving file /home/kali/Desktop/C-Projects/*Messages*...
