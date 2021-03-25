@@ -6,31 +6,34 @@
 
 int main()
 {
-	// fork() Create a child process
+  // fork() Create a child process
   int pid, pid2, pid3;
-	pid = fork();
-	if (pid == 0) {
-	  printf("Im process p2 (%d), my parent is p1 (%d).\n", getpid(), getppid());
-	  sleep(10);
-	  printf("Im process p2 (%d), my parent is p1 (%d) 10 seconds later.\n", getpid(), getppid());
-	} else if(pid != 0){
-	  printf("Im process p1 (%d).\n", getpid());
-	  pid2 = fork();
-	  if(pid2 == 0){
-	    printf("Im process p3 (%d), my parent is p1 (%d).\n", getpid(), getppid());
-	    sleep(10);
-	    printf("Im process p3 (%d), my parent is p1 (%d) 10 seconds later.\n", getpid(), getppid());
-	  } else if(pid2 != 0){
-	    sleep(2);
-	  }
-	  pid3 = fork();
-	  if(pid3 == 0){
-	    printf("Im process (%d), my parent (%d).\n", getpid(), getppid());
-	    sleep(10);
-	    printf("Im process (%d), my parent (%d) 10 seconds later.\n", getpid(), getppid());
-	  } else if(pid3 != 0){
-	    sleep(2);
-	  }
-	}
-	return 0;
+  pid = fork();
+  pid2 = fork();
+  
+  if (pid == 0 && pid2 > 0){
+    //we are in process p3
+    wait(NULL);
+    printf("Process p3 (%d) terminated, with parent p1 (%d).\n", getpid(), getppid());
+  } else if (pid == 0 && pid2 == 0){
+    //we are in process p5
+    printf("Process p5 (%d) terminated, with parent p3 (%d).\n", getpid(), getppid());
+  } else if (pid > 0 && pid2 == 0){
+    //we are in p2
+    printf("Process p2 (%d) terminated, with parent p1 (%d).\n", getpid(), getppid());
+  } else if (pid > 0 && pid2 > 0){
+    //we are in the parent process
+    pid3 = fork();
+    if(pid3 == 0){
+      //we are in process p4
+      sleep(10);
+      printf("Process p4 (%d) terminated, with parent p1 (%d).\n", getpid(), getppid());
+    } else if (pid3 > 0){
+      //we are in the parent
+      wait(NULL);
+      wait(NULL);
+      printf("Parent process p1 (%d) terminated.\n", getpid());
+    }
+  }
+  return 0;
 }
