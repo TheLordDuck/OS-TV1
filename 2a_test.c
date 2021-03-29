@@ -26,37 +26,19 @@ int main()
 	  printf("ENTRANT CHOISES.\n1)Cripsy baked falafel - 3.50 EUR - 3 min.\n2)Peanut Slaw in soba Noodles - 2.50 EUR - 1 min.\n3)Bio Hummus - 3.00 EUR - 2 min.\n");
 	  scanf("%d", &opcio1);
 	}
-	if(opcio1 == 1){
-	  op1 = 1;
-	} else if (opcio1 == 2){
-	  op1 = 2;
-	} else {
-	  op1 = 3;
-	}
+	op1 = opcio1;
 	//second part of the meal order
 	while(opcio2 < 1 || opcio2 > 3){
 	  printf("MAIN DISH CHOISES.\n1)Minimal Eggplant Lasagna - 4.00 EUR - 3 min.\n2)Spicy Veggie Tacos- 4.50 EUR - 4 min.\n3)Plant Based XXL Burger - 5.00 EUR - 5 min.\n");
 	  scanf("%d", &opcio2);
 	}
-	if(opcio2 == 1){
-	  op2 = 1;
-	} else if(opcio2 == 2){
-	  op2 = 2;
-	} else {
-	  op2 = 3;
-	}
+        op2 = opcio2;
 	//third part of the meal order
 	while(opcio3 < 1 || opcio3 > 3){
 	  printf("DRINKS.\n1)Sparling Water - 1.00 EUR - 1 min.\n2)Macha Ice Tea - 1.50 EUR - 1 min.\n3)Bio Orange Juice - 2.50 EUR - 1 min.\n");
 	  scanf("%d", &opcio3);
 	}
-	if(opcio3 == 1){
-	  op3 = 1;
-	} else if(opcio3 == 2){
-	  op3 = 2;
-	} else {
-	  op3 = 3;
-	}
+	op3 = opcio3;
     }
         break;
       case 2 :
