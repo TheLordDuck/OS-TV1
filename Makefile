@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS= -Werror -Wall -g
-TARGET= 2a_test
+CFLAGS= -Werror -Wall -pthread -g
+TARGET= prime_number
 
 $(TARGET): $(TARGET).c
 	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
