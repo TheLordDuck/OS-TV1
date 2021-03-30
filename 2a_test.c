@@ -5,13 +5,13 @@
 #include <sys/wait.h>
 #include <errno.h>
 
-float getPreu(int pos, int servei){
-  float matriu[3][3]={{0.10,0.20,0.30},{0.40,0.50,0.60},{0.70,0.80,0.90}};
+float getPrice(int pos, int servei){
+  float matriu[3][3]={{3.50,2.50,3.00},{4.00,4.50,5.00},{1.00,1.50,2.50}};
   return matriu[pos][servei];
 }
 
-float getTime(int pos, int servei){
-  float matriu[3][3]={{},{},{}};
+int getTime(int pos, int servei){
+  int matriu[3][3]={{3,1,2},{3,4,5},{1,1,1}};
   return matriu[pos][servei];
 }
 
@@ -20,10 +20,11 @@ int main()
   int opcio, op1=-1, op2=-1, op3=-1;
   
   do{
+    printf("-----------------------------------------\n");
     printf("Select and option: type 0 to exit program\n");
     printf("1. Service one: Meal order.\n");
-    printf("2. Service two: Calculate deliver time\n");
-    printf("3. Service three: Calculate total meal cost\n");
+    printf("2. Service two: Calculate deliver time of actual chosen order\n");
+    printf("3. Service three: Calculate total meal cost of actual chosen order\n");
     scanf("%d", &opcio);
     
     switch(opcio){
@@ -74,9 +75,61 @@ int main()
 	  } else if(pid == 0){
 	    close(fd[0]);
 	    //calculations
-	    float x = getPreu(0,op1-1);
-	    float y = getPreu(1,op2-1);
-	    float z = getPreu(2,op3-1);
+	    int x = getTime(0,op1-1);
+	    int y = getTime(1,op2-1);
+	    int z = getTime(2,op3-1);
+	    int result = x+y+z;
+	    // after calculations
+	    if(write(fd[1], &result, sizeof(int)) == -1){
+	      exit(-1);
+	    } else {
+	      close(fd[1]);
+	      exit(0);
+	    }
+	  } else {
+	    close(fd[1]);
+	    int wstatus;
+	    wait(&wstatus);
+	    if(WIFEXITED(wstatus)){
+	      int statusCode = WEXITSTATUS(wstatus);
+	      if(statusCode == 0){
+		int valueFromChild;
+		read(fd[0], &valueFromChild, sizeof(int));
+		close(fd[0]);
+		printf("Child returned code (%d).\nTotal delivery time:  %d mins.\n", statusCode, valueFromChild);
+	      } else {
+		printf("Child got error code (%d).", statusCode);
+	      }
+	    }
+	  }
+	}
+	break;
+      case 3 :
+	//execute service 3 code
+	if(op1 == -1 && op2 == -1 && op3 == -1){
+	  printf("No order to be delivered, can't calculate total meal cost, please select service 1 and make your order.\n");
+	} else {
+	  printf("Creating child to make the calculations.\n");
+	  //create pipe to give op1, op2 and op3 values to child process
+	  int fd[2];
+	  // fd[0] - read
+	  // fd[1] - write
+	  if(pipe(fd) == -1){
+	    printf("An error ocurred with opening the pipe.\n");
+	    return 1;
+	  }
+	  // create fork to make the child work
+	  int pid;
+	  pid = fork();
+	  if(pid == -1){
+	    printf("Error with fork.\n");
+	    exit(-1);
+	  } else if(pid == 0){
+	    close(fd[0]);
+	    //calculations
+	    float x = getPrice(0,op1-1);
+	    float y = getPrice(1,op2-1);
+	    float z = getPrice(2,op3-1);
 	    float result = x+y+z;
 	    // after calculations
 	    if(write(fd[1], &result, sizeof(float)) == -1){
@@ -95,21 +148,12 @@ int main()
 		float valueFromChild;
 		read(fd[0], &valueFromChild, sizeof(float));
 		close(fd[0]);
-		printf("Child returned code (%d).\nTotal delivery time:  %.2f.\n", statusCode, valueFromChild);
+		printf("Child returned code (%d).\nTotal meal cost:  %.2f EUR.\n", statusCode, valueFromChild);
 	      } else {
 		printf("Child got error code (%d).", statusCode);
 	      }
 	    }
 	  }
-	}
-	break;
-      case 3 :
-	//execute service 3 code
-	if(op1 == -1 && op2 == -1 && op3 == -1){
-	  printf("No order to be delivered, can't calculate total meal cost, please select service 1 and make your order.\n");
-	} else {
-	  printf("Creating child to make the calculations.\n");
-	  
 	}
 	break;
       case 0:
