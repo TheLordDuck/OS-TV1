@@ -5,6 +5,16 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+float getPreu(int pos, int servei){
+  float matriu[3][3]={{0.10,0.20,0.30},{0.40,0.50,0.60},{0.70,0.80,0.90}};
+  return matriu[pos][servei];
+}
+
+float getTime(int pos, int servei){
+  float matriu[3][3]={{},{},{}};
+  return matriu[pos][servei];
+}
+
 int main()
 {
   int opcio, op1=-1, op2=-1, op3=-1;
@@ -64,10 +74,12 @@ int main()
 	  } else if(pid == 0){
 	    close(fd[0]);
 	    //calculations
-	    int x = op1+op2+op3;
+	    float x = getPreu(0,op1-1);
+	    float y = getPreu(1,op2-1);
+	    float z = getPreu(2,op3-1);
+	    float result = x+y+z;
 	    // after calculations
-	    printf("Suma valors: %d.\n", x);
-	    if(write(fd[1], &x, sizeof(int)) == -1){
+	    if(write(fd[1], &result, sizeof(float)) == -1){
 	      exit(-1);
 	    } else {
 	      close(fd[1]);
@@ -80,10 +92,10 @@ int main()
 	    if(WIFEXITED(wstatus)){
 	      int statusCode = WEXITSTATUS(wstatus);
 	      if(statusCode == 0){
-		int y;
-		read(fd[0], &y, sizeof(int));
+		float valueFromChild;
+		read(fd[0], &valueFromChild, sizeof(float));
 		close(fd[0]);
-		printf("Child returned code (%d), Got from child %d.\n", statusCode, y);
+		printf("Child returned code (%d).\nTotal delivery time:  %.2f.\n", statusCode, valueFromChild);
 	      } else {
 		printf("Child got error code (%d).", statusCode);
 	      }
