@@ -5,18 +5,24 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+//function that returns the price of each position
 float getPrice(int pos, int servei){
   float matriu[3][3]={{3.50,2.50,3.00},{4.00,4.50,5.00},{1.00,1.50,2.50}};
   return matriu[pos][servei];
 }
 
+//function that returns the time of each position
 int getTime(int pos, int servei){
   int matriu[3][3]={{3,1,2},{3,4,5},{1,1,1}};
   return matriu[pos][servei];
 }
 
+//main function
 int main()
 {
+  //I inicialize op1,op2 and op3 to -1 because first i cant calculate time if these variables are in -1
+  //because makes no sense to calculate time on a meal u have not ordered, so first u have to make an order, o get a message to do it
+  //once u made the order u can use service 2 and 3 to meke these calculations from the dishes u have choosen, and get back the price or time of your meal.
   int opcio, op1=-1, op2=-1, op3=-1;
   
   do{
